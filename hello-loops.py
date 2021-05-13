@@ -27,14 +27,14 @@ def print_users():
     # initial implementation of concatenation in print function:
     # print("BEFORE: " + users.__str__())
     # but Python can do this - and it reads much better
-    print("BEFORE: ", users)
+    print("BEFORE:", users)
 
     # copy the dictionary for iteration, but make changes to the original
     for user, status in users.copy().items():
         if status == "inactive":
             del users[user]
 
-    print("AFTER: ", users)
+    print("AFTER:", users)
 
 
 print_phrases()
