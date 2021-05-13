@@ -1,9 +1,9 @@
 import random
 
 
-def random_positive_ints(size, max):
+def random_positive_ints(size, maximum):
     """Return a list of random unsorted positive integers"""
-    list = []
+    ints = []
     for i in range(0, size):
-        list.append(random.randint(0, max))
-    return list
+        ints.append(random.randint(0, maximum))
+    return ints
