@@ -21,6 +21,7 @@ def get_randomised_ints(size):
 
 def get_unsorted_lists():
     """Return a list of lists with unsorted random positive integers"""
+    # TODO: consider using tuples instead of lists if they contain static values
     list_sizes = [1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000, 9000, 10000]
     unsorted_lists = []
     for size in list_sizes:
