@@ -12,7 +12,11 @@ insults = [
 
 
 def insult_me():
-    """Return a random insult string"""
+    """
+    Insults you. You have been warned.
+
+    :return: a random insult string
+    """
     list_size = len(insults)
     random_index = random.randint(0, list_size)
     return insults[random_index]

@@ -8,15 +8,15 @@ def say_hello(name):
     print("Hello " + name)
 
 
-def default_argument_literal(input, default="default value!"):
+def default_argument_literal(initial_string, default="default value!"):
     """
     Print whatever the user inputs, plus a default value, unless it's overridden.
 
-    :param input: Initial string
+    :param initial_string: Initial string
     :param default: A default hard-coded string, which can be overridden
     :return: None
     """
-    print(input, default)
+    print(initial_string, default)
 
 
 def variable_args_tuple_mapping(*args):

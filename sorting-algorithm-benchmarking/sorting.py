@@ -1,15 +1,21 @@
 def bubblesort(integer_list):
     """
-    Return a sorted version of the input list.
-    I didn't write this - it was stolen from the Internet!
+    Bubblesort sorting algorithm, stolen from:
+    https://github.com/AtomsForPeace/reinventing-the-wheel/blob/master/bubble_sort.py
+
+    :param integer_list: list of integers to be sorted
+    :return: the sorted list
     """
-    size = len(integer_list)
-    for i in range(size):
-        complete_sort = True
-        for j in range(size - i - 1):
-            if integer_list[j] > integer_list[j + 1]:
-                integer_list[j], integer_list[j + 1] = integer_list[j + 1], integer_list[j]
-                complete_sort = False
-        if complete_sort:
+    unsorted = []
+    while True:
+        if len(unsorted) + 1 == len(integer_list):
             break
+        unsorted = []
+        for index, i in enumerate(integer_list[:-1]):
+            if integer_list[index] > integer_list[index + 1]:
+                move_forward = integer_list[index + 1]
+                del integer_list[index + 1]
+                integer_list.insert(move_forward, index)
+            else:
+                unsorted.append(True)
     return integer_list

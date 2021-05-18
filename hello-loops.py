@@ -1,5 +1,9 @@
 def print_phrases():
-    """Print Monty-Python phrases to the console"""
+    """
+    Print Monty-Python phrases to the console.
+
+    :return: None
+    """
     phrases = [
         "Nobody expects the Spanish Inquisition!",
         "'Tis but a scratch!",
@@ -14,7 +18,11 @@ def print_phrases():
 
 
 def print_users():
-    """Print user dictionary to the console, before and after manipulation by a for loop"""
+    """
+    Print user dictionary to the console, before and after manipulation by a for loop.
+
+    :return: None
+    """
     users = {
         "gchapman": "inactive",
         "jcleese": "active",
