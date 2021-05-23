@@ -1,14 +1,6 @@
-"""
-I think the goal here was to do something like this:
-- Run a sorting algorithm on lists of ever increasing size, n
-- Calculate the average time taken to sort each list of size n,
-  meaning - run the algorithm x times and divide the cumulative result by x
-- Do the same for various other algorithms
-- Print the results
-"""
 import random
 import time
-from sorting import bubblesort, insertionsort, selectionsort
+from sorting import bubblesort, insertionsort, selectionsort, mergesort, quicksort
 
 
 def get_randomised_ints(size):
@@ -39,7 +31,7 @@ def get_unsorted_ints():
 
 
 def get_algorithms():
-    return bubblesort, insertionsort, selectionsort
+    return bubblesort, insertionsort, selectionsort, mergesort, quicksort
 
 
 if __name__ == "__main__":
