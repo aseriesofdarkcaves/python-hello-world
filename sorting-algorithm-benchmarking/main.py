@@ -1,6 +1,6 @@
 import random
 import time
-from sorting import bubblesort, insertionsort, selectionsort, mergesort, quicksort
+from sorting import bubblesort, insertionsort, selectionsort, heapsort, mergesort, quicksort
 
 
 def get_randomised_ints(size):
@@ -31,7 +31,7 @@ def get_unsorted_ints():
 
 
 def get_algorithms():
-    return bubblesort, insertionsort, selectionsort, mergesort, quicksort
+    return bubblesort, insertionsort, selectionsort, heapsort, mergesort, quicksort
 
 
 if __name__ == "__main__":
