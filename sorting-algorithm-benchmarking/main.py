@@ -46,6 +46,8 @@ if __name__ == "__main__":
     #   field could be an interface called sortable which has a sort function (but the python equivalent)
     #   add these objects to a list
     #   iterate over the list, calling object.sort each time
+    #   Update:
+    #   This may be easier in python becuase of first-class functions
     averaged_results = {}
 
     for unsorted_list in get_unsorted_lists():
