@@ -41,6 +41,11 @@ def get_unsorted_lists():
 if __name__ == "__main__":
     """Do the benchmarking of the sorting algorithms"""
     # TODO: figure out a way to iterate over the algorithms
+    #   something like the strategy/command pattern?
+    #   create various objects that are configured with the different sorting algorithms as a field
+    #   field could be an interface called sortable which has a sort function (but the python equivalent)
+    #   add these objects to a list
+    #   iterate over the list, calling object.sort each time
     averaged_results = {}
 
     for unsorted_list in get_unsorted_lists():
