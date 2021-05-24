@@ -85,20 +85,27 @@ def heapify(nums, heap_size, root_index):
         heapify(nums, heap_size, largest)
 
 
-def heapsort(nums):
-    n = len(nums)
+def heapsort(numbers):
+    """
+    Heap sort algorithm, nicked from:
+    https://stackabuse.com/sorting-algorithms-in-python/
+
+    :param numbers: the list of integers to be sorted
+    :return: the sorted list
+    """
+    n = len(numbers)
     # Create a Max Heap from the list
     # The 2nd argument of range means we stop at the element before -1 i.e.
     # the first element of the list.
     # The 3rd argument of range means we iterate backwards, reducing the count
     # of i by 1
     for i in range(n, -1, -1):
-        heapify(nums, n, i)
+        heapify(numbers, n, i)
 
     # Move the root of the max heap to the end of
     for i in range(n - 1, 0, -1):
-        nums[i], nums[0] = nums[0], nums[i]
-        heapify(nums, i, 0)
+        numbers[i], numbers[0] = numbers[0], numbers[i]
+        heapify(numbers, i, 0)
 
 
 def merge(left_list, right_list):
@@ -136,17 +143,24 @@ def merge(left_list, right_list):
     return sorted_list
 
 
-def mergesort(nums):
+def mergesort(numbers):
+    """
+    Merge sort algorithm, nicked from:
+    https://stackabuse.com/sorting-algorithms-in-python/
+    
+    :param numbers: the list of integers to be sorted
+    :return: the sorted list
+    """
     # If the list is a single element, return it
-    if len(nums) <= 1:
-        return nums
+    if len(numbers) <= 1:
+        return numbers
 
     # Use floor division to get midpoint, indices must be integers
-    mid = len(nums) // 2
+    mid = len(numbers) // 2
 
     # Sort and merge each half
-    left_list = mergesort(nums[:mid])
-    right_list = mergesort(nums[mid:])
+    left_list = mergesort(numbers[:mid])
+    right_list = mergesort(numbers[mid:])
 
     # Merge the sorted lists into a new one
     return merge(left_list, right_list)
@@ -177,7 +191,15 @@ def partition(nums, low, high):
         nums[i], nums[j] = nums[j], nums[i]
 
 
-def quicksort(nums):
+def quicksort(numbers):
+    """
+    Quick sort algorithm, nicked from:
+    https://stackabuse.com/sorting-algorithms-in-python/
+    
+    :param numbers: the list of integers to be sorted
+    :return: the sorted list
+    """
+
     # Create a helper function that will be called recursively
     def _quick_sort(items, low, high):
         if low < high:
@@ -186,4 +208,4 @@ def quicksort(nums):
             _quick_sort(items, low, split_index)
             _quick_sort(items, split_index + 1, high)
 
-    _quick_sort(nums, 0, len(nums) - 1)
+    _quick_sort(numbers, 0, len(numbers) - 1)
