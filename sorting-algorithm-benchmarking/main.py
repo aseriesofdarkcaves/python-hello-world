@@ -3,17 +3,20 @@ import time
 from sorting import bubblesort, insertionsort, selectionsort, heapsort, mergesort, quicksort
 
 
-def get_randomised_ints(size):
+def get_sorting_algorithms():
     """
-    Generate a list of random unsorted positive integers in the range 0-1000.
+    Get all of the sorting algorithms under test.
 
-    :param size: the number of unsorted positive integers to return
-    :return: a list of randomised positive integers with the given size
+    :return: a list of the sorting algorithm function-references
     """
-    randomised_ints = []
-    for integers in range(0, size):
-        randomised_ints.append(random.randint(0, 1000))
-    return randomised_ints
+    return (
+        bubblesort,
+        insertionsort,
+        selectionsort,
+        heapsort,
+        mergesort,
+        quicksort
+    )
 
 
 def get_unsorted_ints():
@@ -30,15 +33,26 @@ def get_unsorted_ints():
     return unsorted_ints
 
 
-def get_algorithms():
-    return bubblesort, insertionsort, selectionsort, heapsort, mergesort, quicksort
+def get_randomised_ints(size):
+    """
+    Generate a list of random unsorted positive integers in the range 0-1000.
+
+    :param size: the number of unsorted positive integers to return
+    :return: a list of randomised positive integers with the given size
+    """
+    randomised_ints = []
+    for integers in range(0, size):
+        randomised_ints.append(random.randint(0, 1000))
+    return randomised_ints
 
 
-if __name__ == "__main__":
-    """Do the benchmarking of the sorting algorithms"""
+def main():
+    """
+    Benchmark the sorting algorithms.
+    """
     results = {}
 
-    for algorithm in get_algorithms():
+    for algorithm in get_sorting_algorithms():
         averaged_results = {}
         sorter = algorithm
         for unsorted_ints in get_unsorted_ints():
@@ -54,3 +68,7 @@ if __name__ == "__main__":
         results[sorter.__name__] = averaged_results
 
     print(*results.items(), sep="\n")
+
+
+if __name__ == "__main__":
+    main()
