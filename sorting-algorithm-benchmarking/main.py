@@ -1,14 +1,36 @@
-"""
-I think the goal here was to do something like this:
-- Run a sorting algorithm on lists of ever increasing size, n
-- Calculate the average time taken to sort each list of size n,
-  meaning - run the algorithm x times and divide the cumulative result by x
-- Do the same for various other algorithms
-- Print the results
-"""
 import random
 import time
-from sorting import bubblesort
+from sorting import bubblesort, insertionsort, selectionsort, heapsort, mergesort, quicksort
+
+
+def get_sorting_algorithms():
+    """
+    Get all of the sorting algorithms under test.
+
+    :return: a list of the sorting algorithm function-references
+    """
+    return (
+        bubblesort,
+        insertionsort,
+        selectionsort,
+        heapsort,
+        mergesort,
+        quicksort
+    )
+
+
+def get_unsorted_ints():
+    """
+    Setup the values to be used during the benchmarking process.
+
+    :return: a list of lists with unsorted random positive integers
+    """
+    sizes = 1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000, 9000, 10000
+    # TODO: return a tuple here instead
+    unsorted_ints = []
+    for size in sizes:
+        unsorted_ints.append(get_randomised_ints(size))
+    return unsorted_ints
 
 
 def get_randomised_ints(size):
@@ -24,40 +46,29 @@ def get_randomised_ints(size):
     return randomised_ints
 
 
-def get_unsorted_lists():
+def main():
     """
-    Setup the values to be used during the benchmarking process.
+    Benchmark the sorting algorithms.
+    """
+    results = {}
 
-    :return: a list of lists with unsorted random positive integers
-    """
-    # TODO: consider using tuples instead of lists if they contain static values
-    list_sizes = [1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000, 9000, 10000]
-    unsorted_lists = []
-    for size in list_sizes:
-        unsorted_lists.append(get_randomised_ints(size))
-    return unsorted_lists
+    for algorithm in get_sorting_algorithms():
+        averaged_results = {}
+        sorter = algorithm
+        for unsorted_ints in get_unsorted_ints():
+            single_cumulative_result = 0
+            print("Running", sorter.__name__, "for list of size:", len(unsorted_ints))
+            for i in range(0, 10):
+                start_time = time.time()
+                sorter(unsorted_ints)
+                end_time = time.time()
+                elapsed_time = end_time - start_time
+                single_cumulative_result += elapsed_time
+            averaged_results[len(unsorted_ints)] = round((single_cumulative_result / 10), 3)
+        results[sorter.__name__] = averaged_results
+
+    print(*results.items(), sep="\n")
 
 
 if __name__ == "__main__":
-    """Do the benchmarking of the sorting algorithms"""
-    # TODO: figure out a way to iterate over the algorithms
-    averaged_results = {}
-
-    for unsorted_list in get_unsorted_lists():
-        single_cumulative_result = 0
-        print("Running bubblesort for list of size:", len(unsorted_list))
-        for i in range(0, 10):
-            start_time = time.time()
-            bubblesort(unsorted_list)
-            end_time = time.time()
-            elapsed_time = end_time - start_time
-            single_cumulative_result += elapsed_time
-            # TODO: PyCharm console doesn't seem to want to print the dots individually, only on a newline,
-            #  despite having set the flush keyword arg to True, what's up with that?
-            if i < 9:
-                print(".", end="", flush=True)
-            else:
-                print(".")
-        averaged_results[len(unsorted_list)] = round((single_cumulative_result / 10), 3)
-
-    print("Averages:", averaged_results)
+    main()
