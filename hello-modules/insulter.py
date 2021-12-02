@@ -1,6 +1,6 @@
 import random
 
-insults = [
+insults = (
     "You don't frighten us, English pig-dogs!",
     "Go and boil your bottoms, son of a silly person!",
     "I blow my nose at you!",
@@ -8,7 +8,7 @@ insults = [
     "I fart in your general direction!",
     "Your mother was a hamster and your father smelt of elderberries!",
     "Now go away, or I shall taunt you a second time!"
-]
+)
 
 
 def insult_me():
