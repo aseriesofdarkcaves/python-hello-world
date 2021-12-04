@@ -4,14 +4,14 @@ def print_phrases():
 
     :return: None
     """
-    phrases = [
+    phrases = (
         "Nobody expects the Spanish Inquisition!",
         "'Tis but a scratch!",
         "And now for something completely different...",
         "My hovercraft is full of eels",
         "I fart in your general direction!",
         "She's got huge... tracts of land"
-    ]
+    )
 
     for phrase in phrases:
         print(phrase)
