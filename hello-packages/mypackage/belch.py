@@ -1,0 +1,2 @@
+def belch():
+    print('burp!')
