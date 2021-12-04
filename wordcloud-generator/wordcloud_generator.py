@@ -5,7 +5,7 @@ from wordcloud import WordCloud, STOPWORDS
 Adapted from https://amueller.github.io/word_cloud/auto_examples/simple.html
 """
 
-directory_path = str(Path.home()) + "/"
+directory_path = str(Path.home()) + "/Documents/"
 filename_noext = "a-new-hope"
 
 # movie script of "a new hope"

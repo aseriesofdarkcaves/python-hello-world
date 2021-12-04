@@ -1,6 +1,6 @@
 import random
 import time
-from sorting import bubblesort, insertionsort, selectionsort, heapsort, mergesort, quicksort
+from sorters import bubblesort, insertionsort, selectionsort, heapsort, mergesort, quicksort
 
 
 def get_sorting_algorithms():
