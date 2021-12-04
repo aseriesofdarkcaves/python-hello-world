@@ -8,5 +8,6 @@ farts = (
     'fart-4.wav'
 )
 
-fart_index = random.randint(0, len(farts) - 1)
-playsound(farts[fart_index])
+for i in range(0, 2):
+    fart_index = random.randint(0, len(farts) - 1)
+    playsound(farts[fart_index])
