@@ -22,8 +22,8 @@ def print_plaintext(ciphertext, ciphermap):
     for entry in ciphertext:
         if entry.isnumeric():
             key = int(entry) % 26
-            if key in cipermap:
-                print(cipermap[key], end=' ')
+            if key in ciphermap:
+                print(ciphermap[key], end=' ')
             else:
                 print('?', end=' ')
         else:
@@ -55,6 +55,6 @@ if __name__ == "__main__":
         '56', '2', '14', '18'
     ]
 
-    cipermap = init_ciphermap(list(range(0, 26)), string.ascii_lowercase)
+    ciphermap = init_ciphermap(list(range(0, 26)), string.ascii_lowercase)
 
-    print_plaintext(ciphertext, cipermap)
+    print_plaintext(ciphertext, ciphermap)
