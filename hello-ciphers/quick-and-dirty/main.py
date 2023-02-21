@@ -11,23 +11,22 @@ def init_ciphermap(key_list, value_list):
     return dict(zip(key_list, value_list))
 
 
-def print_plaintext(ciphertext, ciphermap):
+def print_alphabetic_ciphertext(ciphertext, ciphermap):
     """
-    Print the plaintext version of the ciphertext using the given ciphermap.
-    :param ciphertext: the ciphertext which should be iterated over
-    :param ciphermap: the dictionary to use to map the ciphertext to plaintext
+    Print an alphabetic version of the given ciphertext to the console.
+    :param ciphertext: the ciphertext list which should be iterated over
+    :param ciphermap: the dictionary to use to map the ciphertext
     :return: None
     """
-    print('#################### OUTPUT ####################')
-    for entry in ciphertext:
-        if entry.isnumeric():
-            key = int(entry) % 26
+    for item in ciphertext:
+        if item.isnumeric():
+            key = int(item) % 26
             if key in ciphermap:
-                print(ciphermap[key], end=' ')
+                print(ciphermap[key], end='')
             else:
-                print('?', end=' ')
+                print('?', end='')
         else:
-            print(entry, end=' ')
+            print(item, end='')
 
 
 if __name__ == "__main__":
@@ -56,5 +55,4 @@ if __name__ == "__main__":
     ]
 
     ciphermap = init_ciphermap(list(range(0, 26)), string.ascii_lowercase)
-
-    print_plaintext(ciphertext, ciphermap)
+    print_alphabetic_ciphertext(ciphertext, ciphermap)
