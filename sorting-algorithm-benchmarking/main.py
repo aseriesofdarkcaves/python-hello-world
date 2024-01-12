@@ -54,18 +54,17 @@ def main():
 
     for algorithm in get_sorting_algorithms():
         averaged_results = {}
-        sorter = algorithm
         for unsorted_ints in get_unsorted_ints():
             single_cumulative_result = 0
-            print("Running", sorter.__name__, "for list of size:", len(unsorted_ints))
+            print("Running", algorithm.__name__, "for list of size:", len(unsorted_ints))
             for i in range(0, 10):
                 start_time = time.time()
-                sorter(unsorted_ints)
+                algorithm(unsorted_ints)
                 end_time = time.time()
                 elapsed_time = end_time - start_time
                 single_cumulative_result += elapsed_time
             averaged_results[len(unsorted_ints)] = round((single_cumulative_result / 10), 3)
-        results[sorter.__name__] = averaged_results
+        results[algorithm.__name__] = averaged_results
 
     print(*results.items(), sep="\n")
 
